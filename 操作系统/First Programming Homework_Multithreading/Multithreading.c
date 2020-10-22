@@ -8,7 +8,7 @@ typedef struct PARAMETER
 {
 	int* List;
 	int num;
-	int (*Func)(int* List, int num);
+	int (*Func)(int* List, int num);        //线程函数中运行的函数
 }PARAMETER;
 
 //全局变量作为统计值
@@ -51,7 +51,7 @@ int InputNumberList(int** List, int* num)
 	return ret;
 }
 
-//打印数字列表
+//打印数字列表和统计值
 void PrintNumList(int* List, int num)
 {
 	int i = 0;
@@ -75,6 +75,7 @@ DWORD ThreadFunc(LPVOID List)
 	PARAMETER* p = (PARAMETER*)List;
 	p->Func(p->List, p->num);
 
+    printf("线程函数执行结束\n");
 	return 0;
 }
 
