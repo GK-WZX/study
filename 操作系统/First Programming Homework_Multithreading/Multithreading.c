@@ -8,7 +8,7 @@ typedef struct PARAMETER
 {
 	int* List;
 	int num;
-	int (*Func)(int* List, int num);        //线程函数中运行的函数
+	int (*Func)(int* List, int num);		//线程函数中执行的函数
 }PARAMETER;
 
 //全局变量作为统计值
@@ -51,7 +51,7 @@ int InputNumberList(int** List, int* num)
 	return ret;
 }
 
-//打印数字列表和统计值
+//打印数字列表和统计结果
 void PrintNumList(int* List, int num)
 {
 	int i = 0;
@@ -75,7 +75,8 @@ DWORD ThreadFunc(LPVOID List)
 	PARAMETER* p = (PARAMETER*)List;
 	p->Func(p->List, p->num);
 
-    printf("线程函数执行结束\n");
+	//进程结束消息提醒
+	printf("进程结束\n");
 	return 0;
 }
 
@@ -169,6 +170,7 @@ int main(void)
 	parameter2.Func = GetMin;
 
 	//创建线程
+	//创建线程0
 	htd0 = CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)ThreadFunc, (void*)&parameter0, 0, &thrd_id0);
 	if (htd0 == NULL)
 	{
@@ -176,6 +178,7 @@ int main(void)
 		printf("func CreateThread() err：%d (htd0 == NULL)\n", ret);
 		goto END;
 	}
+	//创建线程1
 	htd1 = CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)ThreadFunc, (void*)&parameter1, 0, &thrd_id1);
 	if (htd1 == NULL)
 	{
@@ -183,6 +186,7 @@ int main(void)
 		printf("func CreateThread() err：%d (htd1 == NULL)\n", ret);
 		goto END;
 	}
+	//创建线程2
 	htd2 = CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)ThreadFunc, (void*)&parameter2, 0, &thrd_id2);
 	if (htd2 == NULL)
 	{
