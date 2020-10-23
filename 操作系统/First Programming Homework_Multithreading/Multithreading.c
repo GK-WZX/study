@@ -211,5 +211,6 @@ END:
 		List = NULL;
 	}
 
+    system("pause");
 	return ret;
 }
