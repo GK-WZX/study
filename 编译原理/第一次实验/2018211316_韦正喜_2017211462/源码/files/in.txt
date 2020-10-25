@@ -1,0 +1,15 @@
+int main()
+{
+	//annotation1
+	int a = 123;
+	double b = 12.2e-2;
+	char str = "hello world";
+	if(a != 123)
+	{
+		return 1;
+	}
+	/****
+	annotation2
+	****/
+	return 0;
+}

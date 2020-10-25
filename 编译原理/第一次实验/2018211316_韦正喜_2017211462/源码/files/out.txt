@@ -1,0 +1,15 @@
+<keyword,int> <id,main> <(,-> <),-> 
+<{,-> 
+<keyword,int> <id,a> <=,-> <Num,123> <;,-> 
+<keyword,double> <id,b> <=,-> <Num,12.2e-2> <;,-> 
+<keyword,char> <id,str> <=,-> <String,"hello world"> <;,-> 
+<keyword,if> <(,-> <id,a> <!=,-> <Num,123> <),-> 
+<{,-> 
+<keyword,return> <Num,1> <;,-> 
+<},-> 
+
+<keyword,return> <Num,0> <;,-> 
+<},-> 
+ÐÐÊý£º13
+
+×Ö·ûÊý£º159
